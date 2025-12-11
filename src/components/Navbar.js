@@ -13,6 +13,9 @@ export default function Navbar() {
           <li><Link to="/quiz">Quiz</Link></li>
           <li><Link to="/leaderboard">Leaderboard</Link></li>
           <li><Link to="/login">Login</Link></li> {/* ✅ Login link added */}
+          <Link to="/profile">Profile</Link>
+          <Link to="/analytics">Analytics</Link>
+          <Link to="/quizresult">Quiz Result</Link>
         </ul>
       </div>
     </nav>

@@ -19,11 +19,25 @@ export const AppProvider = ({ children }) => {
   }, [userScores]);
 
   const addUserScore = (score) => {
-    setUserScores([...userScores, { name: userName, score }]);
+    const streak = localStorage.getItem("streak") || 0;
+    const date = new Date().toLocaleDateString();
+
+    setUserScores([
+      ...userScores,
+      { name: userName, score, streak, date }
+    ]);
   };
 
   return (
-    <AppContext.Provider value={{ userName, setUserName, userScores, addUserScore }}>
+    <AppContext.Provider
+      value={{
+        userName,
+        setUserName,
+        userScores,
+        setUserScores,   // ✅ अब ये भी context में है
+        addUserScore
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

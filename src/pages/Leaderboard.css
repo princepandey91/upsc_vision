@@ -1,0 +1,53 @@
+/* 🥇 Gold Gradient */
+.bg-gold {
+  background: linear-gradient(90deg, #FFD700, #FFA500);
+  color: #000;
+}
+
+/* 🥈 Silver Gradient */
+.bg-silver {
+  background: linear-gradient(90deg, #C0C0C0, #A9A9A9);
+  color: #000;
+}
+
+/* 🥉 Bronze Gradient */
+.bg-bronze {
+  background: linear-gradient(90deg, #CD7F32, #8B4513);
+  color: #fff;
+}
+
+/* 🌟 Hover Glow */
+.hover-glow {
+  transition: all 0.3s ease;
+}
+.hover-glow:hover {
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.6);
+  transform: scale(1.02);
+}
+
+/* 👑 Crown Shine */
+@keyframes crown-shine {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+.crown {
+  animation: crown-shine 2s infinite;
+}
+
+/* 🔥 Flame Flicker */
+@keyframes flicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+.flame {
+  animation: flicker 1s infinite;
+}
+
+/* ✅ My Rank Highlight */
+.my-rank {
+  background-color: #bbf7d0; /* Tailwind green-200 */
+  border: 2px solid #22c55e; /* Tailwind green-500 */
+  animation: pulse 2s infinite;
+}

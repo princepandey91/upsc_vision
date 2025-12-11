@@ -7,8 +7,12 @@ import Notes from "./pages/Notes";
 import PYQ from "./pages/PYQ";
 import Motivation from "./pages/Motivation";
 import Quiz from "./pages/Quiz";
+import QuizResult from "./components/QuizResult";
+import QuizAnalytics from "./pages/QuizAnalytics"; 
 import Leaderboard from "./pages/Leaderboard";
 import Login from "./pages/Login";  // ✅ Login page import करो
+import Profile from "./pages/Profile";  // ✅ Import Profile
+
 
 
 function App() {
@@ -24,8 +28,11 @@ function App() {
                <Route path="/pyq" element={<PYQ />} />
                <Route path="/motivation" element={<Motivation />} />
                <Route path="/quiz" element={<Quiz />} />
+               <Route path="/quizresult" element={<QuizResult />} />
                <Route path="/leaderboard" element={<Leaderboard />} />
+               <Route path="/analytics" element={<QuizAnalytics />} />
                <Route path="/login" element={<Login />} />
+               <Route path="/profile" element={<Profile />} />  {/* ⭐ Route added */}
             </Routes>
           </main>
         </div>
