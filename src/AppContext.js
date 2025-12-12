@@ -1,4 +1,3 @@
-// AppContext.js
 import React, { createContext, useState, useEffect } from "react";
 
 export const AppContext = createContext();
@@ -7,10 +6,13 @@ export const AppProvider = ({ children }) => {
   const [userName, setUserName] = useState("");
   const [userScores, setUserScores] = useState([]);
 
-  // ⬇️ LocalStorage से data load करना
+  // ⬇️ LocalStorage से data load करना (scores + username)
   useEffect(() => {
     const savedScores = JSON.parse(localStorage.getItem("scores")) || [];
     setUserScores(savedScores);
+
+    const savedName = localStorage.getItem("userName");
+    if (savedName) setUserName(savedName);
   }, []);
 
   // ⬇️ जब भी userScores बदले, LocalStorage में save करना
@@ -18,6 +20,7 @@ export const AppProvider = ({ children }) => {
     localStorage.setItem("scores", JSON.stringify(userScores));
   }, [userScores]);
 
+  // ⬇️ नया score add करना (name + score + streak + date)
   const addUserScore = (score) => {
     const streak = localStorage.getItem("streak") || 0;
     const date = new Date().toLocaleDateString();
@@ -34,7 +37,7 @@ export const AppProvider = ({ children }) => {
         userName,
         setUserName,
         userScores,
-        setUserScores,   // ✅ अब ये भी context में है
+        setUserScores,   // ✅ flexibility
         addUserScore
       }}
     >

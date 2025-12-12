@@ -3,8 +3,17 @@ import { AppContext } from "../AppContext";
 import StreakTracker from "../components/StreakTracker"; 
 import Badges from "../components/Badges";   // 🏅 Motivational Badges
 
-export default function QuizResult({ questions, answers, startTime, endTime }) {
+export default function QuizResult({ questions=[], answers=[], startTime, endTime }) {
   const { userScores, setUserScores, userName, streak, updateStreak } = useContext(AppContext);
+
+  // // 🛡️ Fallback check
+  // if (!questions || !answers || questions.length === 0) {
+  //   return (
+  //     <div className="p-4 bg-red-100 text-red-700 rounded">
+  //       ❌ Quiz data missing. Please retake the quiz.
+  //     </div>
+  //   );
+  // }
 
   const total = questions.length;
   const correct = answers.filter(a => a.isCorrect).length;
